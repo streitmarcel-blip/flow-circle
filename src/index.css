@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Default (Dark) - Deep Space Calm */
+    --color-bg-deep: #0F172A;
+    --color-bg-card: #1E293B;
+    --color-bg-subtle: #334155;
+
+    --color-primary: #C084FC;
+    --color-secondary: #818CF8;
+    --color-success: #34D399;
+
+    --color-text-main: #F1F5F9;
+    --color-text-muted: #94A3B8;
+  }
+
+  :root.light {
+    /* Light Mode */
+    --color-bg-deep: #F8FAFC;
+    --color-bg-card: #FFFFFF;
+    --color-bg-subtle: #E2E8F0;
+
+    --color-primary: #9333EA;
+    /* Stronger purple for contrast */
+    --color-secondary: #4F46E5;
+
+    --color-text-main: #0F172A;
+    --color-text-muted: #64748B;
+  }
+}
+
+@theme {
+  --color-bg-deep: var(--color-bg-deep);
+  --color-bg-card: var(--color-bg-card);
+  --color-bg-subtle: var(--color-bg-subtle);
+
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-success: var(--color-success);
+
+  --color-text-main: var(--color-text-main);
+  --color-text-muted: var(--color-text-muted);
+
+  --font-sans: 'Outfit', sans-serif;
+  --radius-3xl: 24px;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-deep text-text-main font-sans antialiased overflow-hidden;
+  }
+}
