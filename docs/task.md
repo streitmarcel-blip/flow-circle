@@ -2,6 +2,39 @@
 
 Dieses Dokument organisiert die Arbeit in spezialisierte "Agenten"-Rollen.
 
+## 🧠 Status Quo (Für Kontext-Handover)
+*Stand: 2026-01-20*
+*   **App Status**: v0.9 (MVP Live).
+*   **Deployment**: [GitHub Pages Link](https://streitmarcel-blip.github.io/flow-circle/).
+*   ** Codebase**: React + Vite + Tailwind v4. Clean Architecture.
+*   **Features Live**: 
+    1.  Circular Timer (procedural audio, neumorphic glow).
+    1.  Circular Timer (procedural audio, neumorphic glow).
+    2.  Task Input ("Dein Fokus").
+    3.  Timeline (Add/List tasks, LocalStorage persistence).
+    4.  Theming (Dark/Light Mode toggles via CSS variables).
+
+## 📋 Iteration 2: User Feedback & Refinement (To Do)
+**Bugs (High Priority):**
+- [ ] **Input-Fokus Fix**: Eingabefeld springt/verliert Fokus in Chrome.
+- [x] **Scrolling Fix**: Mobile Ansicht lässt sich nicht scrollen (Overflow Issue).
+- [x] **Color Revert & Text Visibility**: Alte Farbpalette wiederherstellen & Light Mode Text-Lesbarkeit flicken.
+
+**Features & Logic:**
+- [ ] **Task Editing**: Bestehende Aufgaben bearbeitbar machen.
+- [x] Custom Modal for "Add Task" (Start/End Time) <!-- id: 7 -->
+- [x] iOS-style Time Picker (Wheel Scroller) <!-- id: 8 -->
+- [x] Task Editing (Edit/Update existing blocks) <!-- id: 9 -->
+- [x] Task Deletion (Remove blocks) <!-- id: 10 -->
+- [x] Display Start & End Time in Timeline Blocks <!-- id: 11 -->
+- [x] Implement strict "Task Completion" (Checkbox/Visual State) <!-- id: 12 -->
+
+**UI Polish / Wording:**
+- [ ] **Wording**: Timer-Button von "Fließen" -> "Starten".
+- [ ] **FC Icon**: Das "FC"-Symbol entfernen (ohne Funktion).
+- [ ] **Layout**: "Neuer Block"-Button auf volle Breite zentrieren (Angleichung an Cards).
+- [ ] **Timeline Line**: "Countdown"-Feature auf der Verbindungslinie (Zeit bis zum nächsten Block).
+
 ## 👨‍💻 Agent 1: Core Development (Entwicklung)
 Der Fokus liegt auf der technischen Umsetzung, Code-Qualität und Funktionalität.
 - [/] **Projekt-Initialisierung**
@@ -40,11 +73,18 @@ Fokus auf Ästhetik, User Experience und visuelle Identität.
 Sicherstellen, dass Nutzer und Entwickler die App verstehen.
 - [x] **Benutzerhilfe**
     - [x] Onboarding-Tutorial-Texte schreiben
-    - [ ] FAQ (Häufig gestellte Fragen) erstellen
+    - [x] FAQ (Häufig gestellte Fragen) erstellen
 - [ ] **Rechtliches**
     - [x] Entwurf der Datenschutzerklärung (Privacy Policy)
-    - [ ] Impressum-Vorlage
+    - [x] Impressum-Vorlage
+- [x] **Entwickler-Ressourcen** (Neu identifiziert)
+    - [x] README.md: Projekt-Kontext & Setup-Anleitung
+    - [x] CHANGELOG.md: Versionshistorie starten
+    - [x] LICENSE: Lizenzdatei hinzufügen (z.B. MIT)
+    - [x] CONTRIBUTING.md: Workflow für Multi-Agenten-Setup
 
 ## 🏁 Abschluss & Review
+## 🏁 Abschluss & Review
 - [x] Finales Testing aller Komponenten
-- [ ] Deployment (z.B. GitHub Pages oder Netlify)
+- [x] **Backup**: Code sicher auf GitHub (`flow-circle`)
+- [x] **Deployment**: Live auf GitHub Pages (Handy-ready)

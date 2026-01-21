@@ -1,46 +1,73 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    /* Default (Dark) - Deep Space Calm */
-    --color-bg-deep: #0F172A;
-    --color-bg-card: #1E293B;
-    --color-bg-subtle: #334155;
+:root {
+  /* --- DARK MODE (Origin/Default) --- */
 
-    --color-primary: #C084FC;
-    --color-secondary: #818CF8;
-    --color-success: #34D399;
+  /* Backgrounds */
+  --val-bg-deep: #0c1222;
+  --val-bg-card: #1E293B;
+  --val-bg-subtle: #334155;
 
-    --color-text-main: #F1F5F9;
-    --color-text-muted: #94A3B8;
-  }
+  /* Accents */
+  --val-primary: #380571;
+  --val-secondary: #818CF8;
+  --val-success: #34D399;
 
-  :root.light {
-    /* Light Mode */
-    --color-bg-deep: #F8FAFC;
-    --color-bg-card: #FFFFFF;
-    --color-bg-subtle: #E2E8F0;
+  /* Components */
+  --val-ring-active: #D1E0EB;
+  --val-ring-inactive: #ACBDCD;
+  --val-gold-border: #83796b;
+  --val-dashed: #494F52;
+  --val-text-block: #B0A99F;
+  --val-duration-bg: #2D3132;
 
-    --color-primary: #9333EA;
-    /* Stronger purple for contrast */
-    --color-secondary: #4F46E5;
+  /* Text */
+  --val-text-main: #F1F5F9;
+  --val-text-muted: #94A3B8;
+}
 
-    --color-text-main: #0F172A;
-    --color-text-muted: #64748B;
-  }
+html.light {
+  /* --- LIGHT MODE --- */
+
+  /* Backgrounds */
+  --val-bg-deep: #F8FAFC;
+  --val-bg-card: #FFFFFF;
+  --val-bg-subtle: #E2E8F0;
+
+  /* Accents */
+  --val-primary: #C084FC;
+
+  /* Components */
+  --val-ring-active: #4F46E5;
+  --val-ring-inactive: #CBD5E1;
+  --val-gold-border: #B45309;
+  --val-dashed: #CBD5E1;
+  --val-text-block: #475569;
+  --val-duration-bg: #F1F5F9;
+
+  /* Text */
+  --val-text-main: #0F172A;
+  --val-text-muted: #64748B;
 }
 
 @theme {
-  --color-bg-deep: var(--color-bg-deep);
-  --color-bg-card: var(--color-bg-card);
-  --color-bg-subtle: var(--color-bg-subtle);
+  --color-bg-deep: var(--val-bg-deep);
+  --color-bg-card: var(--val-bg-card);
+  --color-bg-subtle: var(--val-bg-subtle);
 
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-success: var(--color-success);
+  --color-primary: var(--val-primary);
+  --color-secondary: var(--val-secondary);
+  --color-success: var(--val-success);
 
-  --color-text-main: var(--color-text-main);
-  --color-text-muted: var(--color-text-muted);
+  --color-ring-active: var(--val-ring-active);
+  --color-ring-inactive: var(--val-ring-inactive);
+  --color-gold-border: var(--val-gold-border);
+  --color-dashed: var(--val-dashed);
+  --color-text-block: var(--val-text-block);
+  --color-duration-bg: var(--val-duration-bg);
+
+  --color-text-main: var(--val-text-main);
+  --color-text-muted: var(--val-text-muted);
 
   --font-sans: 'Outfit', sans-serif;
   --radius-3xl: 24px;
@@ -48,6 +75,19 @@
 
 @layer base {
   body {
-    @apply bg-bg-deep text-text-main font-sans antialiased overflow-hidden;
+    @apply bg-bg-deep text-text-main font-sans antialiased overflow-y-auto;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 }

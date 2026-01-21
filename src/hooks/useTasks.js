@@ -22,5 +22,9 @@ export const useTasks = () => {
         setTasks(prev => prev.filter(t => t.id !== id));
     };
 
-    return { tasks, addTask, removeTask };
+    const updateTask = (id, updatedFields) => {
+        setTasks(prev => prev.map(t => t.id === id ? { ...t, ...updatedFields } : t));
+    };
+
+    return { tasks, addTask, removeTask, updateTask };
 };

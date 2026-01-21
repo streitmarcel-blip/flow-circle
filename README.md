@@ -1,16 +1,70 @@
-# React + Vite
+# Flow Circle (Ionized Zodiac)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Deep Calm Focus for ADHD Minds.**
 
-Currently, two official plugins are available:
+Flow Circle is a Progressive Web App (PWA) designed to help users with ADHD or sensory processing sensitivity manage their time without stress. It replaces ticking clocks and harsh alarms with gentle, organic circular visualizations and procedural audio cues.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> **Philosophy**: Visual silence. No neon. No hard edges. Just flow.
 
-## React Compiler
+## 🌟 Core Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Circular Focus Timer**: A visual "orbit" that fills up instead of counting down.
+*   **Deep Space Calm Design**: A specifically curated dark mode palette (`#0F172A` Slate) to reduce eye strain and cognitive load.
+*   **Procedural Audio**: Gentle gong sounds for session completion (no jarring alarms).
+*   **Daily Timeline**: Vertical timeline for planning "blocks" of focus (Persistence via LocalStorage).
+*   **PWA Ready**: Works offline and can be installed on home screens.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **Frontend**: React 19 (via Vite)
+*   **Styling**: Tailwind CSS v4
+*   **State**: React Hooks + LocalStorage
+*   **Deployment**: GitHub Pages (via `gh-pages`)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+*   Node.js (v18+)
+*   npm
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/streitmarcel-blip/ionized-zodiac.git
+    cd ionized-zodiac
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+4.  Open `http://localhost:5173` in your browser.
+
+## 📂 Project Structure
+
+```
+/src
+  /assets        # Icons and static media
+  /components    # React components (CircularTimer, Layout, etc.)
+  /hooks         # Custom hooks (useAudio, useTimer)
+  App.jsx        # Main Application Switch
+  index.css      # Tailwind v4 Configuration & Global Styles
+/docs            # Project Documentation & Marketing Assets
+```
+
+## 🤝 Contributing
+
+This project is built using a **Multi-Agent Workflow**.
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to act as a specific Agent role.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

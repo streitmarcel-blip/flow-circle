@@ -46,30 +46,31 @@ const CircularTimer = ({ duration = 25, onComplete, onStart, onPause }) => {
     return (
         <div className="relative flex items-center justify-center">
             {/* Glow Effect behind the timer - Continuous for 'Full Circle' feel */}
-            <div className={`absolute w-full h-full rounded-full blur-[50px] transition-all duration-1000 ${isActive ? 'bg-primary/40 scale-110' : 'bg-primary/20 scale-100'}`} />
+            <div className={`absolute w-full h-full rounded-full blur-[50px] transition-all duration-1000 ${isActive ? 'bg-primary/60 scale-110' : 'bg-primary/30 scale-100'}`} />
 
-            {/* Inner ambient glow */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-secondary/10 blur-xl animate-pulse" />
+            {/* Inner ambient glow to simulate 'Sun' inside */}
+            <div className="absolute inset-0 rounded-full bg-primary/40 blur-2xl animate-pulse" />
 
-            <div className="relative z-10">
+            {/* Content Container - Elevated Z-Index to stay crisp above glows */}
+            <div className="relative z-20">
                 <svg
                     height={radius * 2}
                     width={radius * 2}
                     className="rotate-[-90deg] transform drop-shadow-[0_0_15px_rgba(192,132,252,0.3)]"
                 >
-                    {/* Background Ring */}
+                    {/* Background Ring (Inactive) */}
                     <circle
-                        stroke="currentColor"
+                        stroke="var(--color-ring-inactive)"
                         strokeWidth={stroke}
                         fill="transparent"
                         r={normalizedRadius}
                         cx={radius}
                         cy={radius}
-                        className="text-bg-subtle"
+                        className=""
                     />
-                    {/* Progress Ring */}
+                    {/* Progress Ring (Active) */}
                     <circle
-                        stroke="currentColor"
+                        stroke="var(--color-ring-active)"
                         strokeWidth={stroke}
                         strokeDasharray={circumference + ' ' + circumference}
                         style={{ strokeDashoffset, transition: 'stroke-dashoffset 0.5s ease-in-out' }}
@@ -78,13 +79,13 @@ const CircularTimer = ({ duration = 25, onComplete, onStart, onPause }) => {
                         r={normalizedRadius}
                         cx={radius}
                         cy={radius}
-                        className={`text - primary ${isActive ? 'drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]' : ''} `}
+                        className="transition-all duration-500"
                     />
                 </svg>
 
                 {/* Time Display & Controls inside circle */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-5xl font-light tabular-nums tracking-tight">
+                    <span className="text-5xl font-light tabular-nums tracking-tight text-text-main">
                         {formatTime(timeLeft)}
                     </span>
                     <button

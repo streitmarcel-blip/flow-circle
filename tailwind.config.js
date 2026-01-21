@@ -8,16 +8,31 @@ export default {
         extend: {
             colors: {
                 bg: {
-                    deep: '#0F172A',
-                    card: '#1E293B',
-                    subtle: '#334155',
+                    deep: 'var(--val-bg-deep)',
+                    card: 'var(--val-bg-card)',
+                    subtle: 'var(--val-bg-subtle)',
                 },
-                primary: '#C084FC',
-                secondary: '#818CF8',
-                success: '#34D399',
+                primary: 'var(--val-primary)',
+                secondary: 'var(--val-secondary)',
+                success: 'var(--val-success)',
                 text: {
-                    main: '#F1F5F9',
-                    muted: '#94A3B8',
+                    main: 'var(--val-text-main)',
+                    muted: 'var(--val-text-muted)',
+                },
+                // User Specifics not previously in config but needed
+                ring: {
+                    active: 'var(--val-ring-active)',
+                    inactive: 'var(--val-ring-inactive)',
+                },
+                gold: {
+                    border: 'var(--val-gold-border)',
+                },
+                dashed: 'var(--val-dashed)',
+                block: {
+                    text: 'var(--val-text-block)',
+                },
+                duration: {
+                    bg: 'var(--val-duration-bg)',
                 }
             },
             fontFamily: {

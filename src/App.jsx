@@ -5,28 +5,39 @@ import CircularTimer from './components/Timer/CircularTimer';
 import TaskInput from './components/Task/TaskInput';
 import Timeline from './components/Timeline/Timeline';
 import { useTasks } from './hooks/useTasks';
+import { useCurrentTime } from './hooks/useCurrentTime';
+import { calculateEndTime, isTimePast } from './utils/timeUtils';
 
 function App() {
   const [task, setTask] = useState('');
   const [isTimerActive, setIsTimerActive] = useState(false);
-  const { tasks, addTask } = useTasks();
+  const { tasks, addTask, updateTask, removeTask } = useTasks();
+  const currentTime = useCurrentTime();
 
-  const handleAddTask = () => {
-    // Quick Prompt for now (can be replaced by Modal later)
-    const title = prompt("Titel der Aufgabe:");
-    const time = prompt("Uhrzeit (z.B. 10:00):", "10:00");
-    if (title && time) {
-      addTask({ title, time, type: 'focus', duration: '25 min' });
+  // Filter tasks that are NOT in the past
+  const activeTasks = tasks.filter(t => {
+    const endTime = calculateEndTime(t.time, t.duration);
+    return !isTimePast(endTime, currentTime);
+  }).sort((a, b) => a.time.localeCompare(b.time));
+
+  const handleAddTask = (newTask) => {
+    // newTask comes from Timeline Modal now
+    if (newTask && newTask.title) {
+      addTask(newTask);
     }
   };
 
-  // Sync "Current Mission" with the first task if timer starts
-  // This logic can be refined to auto-pick based on time
+  // Sync "Current Mission" with the first ACTIVE task if timer starts
   useEffect(() => {
-    if (isTimerActive && !task && tasks.length > 0) {
-      setTask(tasks[0].title);
+    if (activeTasks.length > 0) {
+      // Always suggest the top task from the active list
+      if (!isTimerActive || !task) {
+        setTask(activeTasks[0].title);
+      }
+    } else {
+      setTask(''); // No tasks left
     }
-  }, [isTimerActive, tasks]);
+  }, [activeTasks, isTimerActive]);
 
   return (
     <Layout>
@@ -70,7 +81,7 @@ function App() {
           </div>
 
           {/* Timeline Section */}
-          <Timeline tasks={tasks} onAdd={handleAddTask} />
+          <Timeline tasks={activeTasks} onAdd={handleAddTask} onUpdate={updateTask} onDelete={removeTask} />
         </div>
       </div>
     </Layout>

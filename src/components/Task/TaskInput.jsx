@@ -5,6 +5,7 @@ const TaskInput = ({ value, onChange, onEnter }) => {
         <div className="w-full max-w-xs relative group">
             <input
                 type="text"
+                autoFocus
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && onEnter()}
